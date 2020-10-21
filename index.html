@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Final Project</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" media="screen">
+
+  </head>
+
+  <body>
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-xs-9 phone-nav">
+              <a class="navbar-brand" href="#" id="logo">Loan Data Assestment</a>
+            </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+                <li><a href="#datacleaning">Data Cleaning</a></li>
+                <li><a href="#logreg">Logisitic Regression</a></li>
+                <li><a href="#randomforest">Random Forest</a></li>
+                <li><a href="#samatha">_</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Data<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="output/LC_Final.csv.gz">Clean Data Download</a></li>
+                        <li><a href="input/LCDataDictionary.csv">Column Dictionary Download</a></li>
+                    </ul>
+                </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container" id="objective">
+    <section class="row">
+        <div class="col-md-12">
+            <article class="description-content">
+                <h1 class="description-header">Objective</h1>
+                <hr class="description-hr" />
+                <p>LendingClub is a US peer-to-peer lending company, headquartered in San Francisco, California. It was the
+                    first peer-to-peer lender to register its offerings as securities with the Securities and Exchange
+                    Commission (SEC), and to offer loan trading on a secondary market. LendingClub is the world's largest
+                    peer-to-peer lending platform.</p>
+                <p>Our Goal, given historical data on loans given out with information on whether or not the borrower
+                    defaulted (charge-off), can we build a model that can predict whether or not a borrower will pay back
+                    their loan? This way in the future when we get a new potential customer we can assess whether or not
+                    they are likely to pay back the loan.</p>
+            </article>
+        </div>
+    </section>
+    </div>
+    <div class="container" id="datacleaning">
+        <section class="row">
+            <div class="col-md-12">
+                <article class="description-content">
+                    <h1 class="description-header">Data Cleaning</h1>
+                    <hr class="description-hr" />
+                    <p><img src="assets/images/loan status by sub grade.png" alt="" id="description-image" /></p>
+                    <p>We are using data available to us on <a
+                            href="https://www.kaggle.com/wordsforthewise/lending-club">Kaggle</a> which was compressed using
+                        gzip. This was done to reduce the overall size while working. The original data file is removed from
+                        our github due to size limitations, however our final cleaned data is provided for individual use.
+                    </p>
+                    <p>After reviewing the original file, we noticed many columns contained NaN data entries or contained
+                        data not directly related to the loan status column. With this in mind, columns that contained 50%+
+                        NaN data enties were removed from the dataframe. From there each additional column was reviewed for
+                        it's impact on the loan status. A sample plot is provided to help understand the analysis done on
+                        each remaining column.</p>
+                    <p>Once all necessary columns had been identified, a csv was exported and compressed to help reduce the
+                        amount of space needed. Overall we were able to keep over 1 million rows of data from 2007 to 2018.
+                    </p>
+                    <p><a href="#logo">^Top</a></p>
+                </article>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="logreg">
+        <section class="row">
+            <div class="col-md-12">
+                <article class="description-content">
+                    <h1 class="description-header">Logisitic Regression Model</h1>
+                    <hr class="description-hr" />
+                    <img src="assets/images/modellogreg.png" alt="" id="description-image" />
+                    <p>Taking the cleaned csv, addition encoding needed to take place before working on our Machine Learning
+                        Models. Using the <a
+                            href="https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html">Categorical Data
+                            type in pandas</a>, we were able to encode the exisiting object data type columns.</p>
+                    <p>One model we chose to test was the Logisitic Regression model using tensorflow, sklearn and keras
+                        libraries. Setting up the model to have 21 inputs, two layers of connecting units and two outputs,
+                        the model performed at an 80.54% accuracy. When pulling samples from the test data, usually one or
+                        two predictions would be wrong in the set. Not being satisfied with only one model, we performed two
+                        other tests.</p>
+                    <p><a href="#logo">^Top</a></p>
+                </article>
+            </div>
+        </section>
+    </div>
+      <div class="container" id="randomforest">
+        <section class="row">
+          <div class="col-md-12">
+            <article class="description-content">
+              <h1 class="description-header">Random Forest Model</h1>
+              <hr class="description-hr"/>
+              <img src="assets/images/Fig1.png" alt="" id="description-image"/>
+              <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.</p>
+              <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
+              <p><a href="#logo">^Top</a></p>
+            </article>
+          </div>
+        </section>
+      </div>
+      <div class="container" id="samatha">
+        <section class="row">
+          <div class="col-md-12">
+            <article class="description-content">
+              <h1 class="description-header">Samatha's Model</h1>
+              <hr class="description-hr"/>
+              <img src="assets/images/Fig1.png" alt="" id="description-image"/>
+              <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.</p>
+              <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
+              <p><a href="#logo">^Top</a></p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+    <!-- End of container -->
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
