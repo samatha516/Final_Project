@@ -145,16 +145,33 @@
       <section class="row">
         <div class="col-md-12">
           <article class="description-content">
-            <h1 class="description-header">Random Forest Model</h1>
+            <h1 class="description-header">Random Forests Model</h1>
             <hr class="description-hr" />
-            <img src="assets/images/Fig1.png" alt="" id="description-image" />
-            <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. To
-              accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500
-              cities.</p>
-            <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors
-              we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data
-              and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and
-              correlations witnessed.</p>
+            <img src="assets/images/rf.png" alt="" id="description-image" />
+            <p>The Random Forests model in simple terms, is a collection of multiple decision trees. Each tree uses a random number
+              of features to make a classification prediction, and the classification with the most votes is returned by the model. 
+              We used Sklearn's RandomForestClassifier.</p>
+            <h2>Data Pre-Processing for the Model</h2>
+            <img src="assets/images/encoding.png" alt="" id="label-encoding-image" />  
+            <p>
+              <strong>Label Encoding:</strong> As was done in another model, the categorical string values were encoded
+              to numerical values using Sklearn's LabelEncoder tool.
+              <strong>Resampling:</strong> Our dataset was unbalanced for the target value so we used sklearn's resample tool to
+              balance the dataset. 
+            </p>
+            <h2>Train, Validation, Test</h2>
+            <img src="assets/images/rf-feature-importance.png" alt="" id="description-image" class="resize"/>
+            <img src="assets/images/rf-results.png" alt="" id="description-image" />
+            <img src="assets/images/rf-feature-importance-2.png" alt="" id="description-image"  />
+            
+            
+            <p>After pre-processing, we used Sklearn's train_test_split method twice to split the data into training, validation, and
+              testing groups in a 60/20/20 ratio.<br>
+              We trained our random forest classifier on the training dataset and then used the validation set to tune our model. We
+              used Sklearn's GridSearchCV tool to hypertune the parameters for the random forest classifier. After resampling and 
+              hypertuning we received an accuracy of 91%. Using Sklearn's built-in feature importance tool we were also able to see the 
+              most important features the model used for the predictions.</p>
+            
             <p><a href="#logo">^Top</a></p>
           </article>
         </div>

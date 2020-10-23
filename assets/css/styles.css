@@ -164,13 +164,25 @@ p > a{
   padding-bottom: 20px;
 }
 
+.resize {
+  width: 20% !important;
+  height: 20% !important;
+  float: right !important;
+  padding-left: 20px !important;
+}
+
+.resize_graph {
+  width: 40% !important;
+  height: 40% !important;
+}
+
 #description-image {
   /* Positioning */
   float: left;
 
   /* Box-model */
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   margin-top: 20px;
   margin-right: 20px;
   display: block;
