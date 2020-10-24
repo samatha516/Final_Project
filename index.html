@@ -64,6 +64,7 @@
           <article class="description-content">
             <h1 class="description-header">Objective</h1>
             <hr class="description-hr" />
+            <img src="LC.jpg" alt="" id="description-image" />
             <p>LendingClub is a US peer-to-peer lending company, headquartered in San Francisco, California. It was the
               first peer-to-peer lender to register its offerings as securities with the Securities and Exchange
               Commission (SEC), and to offer loan trading on a secondary market. LendingClub is the world's largest
@@ -128,14 +129,17 @@
           <article class="description-content">
             <h1 class="description-header">Light GBM</h1>
             <hr class="description-hr" />
-            <img src="assets/images/Fig1.png" alt="" id="description-image" />
-            <p>The purpose of this project was to analyze how weather changes as you get closer to the equator. To
-              accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500
-              cities.</p>
-            <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors
-              we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data
-              and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and
-              correlations witnessed.</p>
+            
+            <p>Using the clean csv, the first step taken was converting columns with the object datatype to categorical.
+              This allows string data to be used in the Light GBM model. Looking at the data shows an imbalance between paid
+              and charged off accounts and is addressed by using the Light GBM is_unbalance aprameter and upsampling.</p>
+            <p>The Data was then split into training and test sets and fit to the Light GBM model. After testing once, the
+              model returned an .8064 accurancy. The next test used the is_balance parameter to see if it would give a
+              different result. Once fit and tested, the model gave a lower accuracy than the first test at .7310. The last
+              test was done using an upsample of the minority class. This was done to combat the imbalance found in the
+              testing data between positive and negative results. Once the data was recoded and fit to the model, it
+              produced and accuracy rate higher than our previous tests at .8318. Overall this deep dive into Light GBM
+              showed its flexibility when solving this problem.</p>
             <p><a href="#logo">^Top</a></p>
           </article>
         </div>
