@@ -32,7 +32,7 @@ Our Goal: Given historical data on loans given out with information on whether o
     - Modeling
       - Random Forest
       - Logisitic Regression model using tensorflow, sklearn and keras libraries
-      - LightGBM with stratified Kfold cross validation procedure
+      - LightGBM with Kfold cross validation procedure
       
 
 
